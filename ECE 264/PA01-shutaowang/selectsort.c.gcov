@@ -1,0 +1,36 @@
+        -:    0:Source:selectsort.c
+        -:    0:Graph:selectsort.gcno
+        -:    0:Data:selectsort.gcda
+        -:    0:Runs:3
+        -:    0:Programs:1
+        -:    1:#ifdef SELECTION_SORT
+        -:    2:#include "pa01.h"
+        3:    3:void selectSort(int * arr, int size)
+        -:    4://arr : the array to be sorted
+        -:    5://size : the number of elements in the array
+        -:    6:
+        -:    7:// In each iteration, the number of elements to be sorted shrinks by one
+        -:    8:// i.e., one element is at the correct position.
+        -:    9://
+        -:   10:// Among the remaining elements, find the smallest value and put it 
+        -:   11:// before the other unsorted elements
+        -:   12:{
+        -:   13:  int i;
+        -:   14:  int j;
+        -:   15:  int min;
+        -:   16:  
+    49149:   17:  for (i = 0;i < size - 1; i++)
+        -:   18:  {
+    49146:   19:     min = i;
+402628605:   20:     for(j = i + 1; j < size; j++)
+        -:   21:     {
+402579459:   22:        if (arr[j] < arr[min])
+   400860:   23:	  min = j;
+        -:   24:      }
+    49146:   25:      if (i != min)
+    49119:   26:        swap(&arr[i], &arr[min]);
+        -:   27:  }
+        3:   28:  return;
+        -:   29:}
+        -:   30:
+        -:   31:#endif	
